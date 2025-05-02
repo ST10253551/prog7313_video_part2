@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/financial">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".Display_ExpenseActivity">
+
+        <!-- Scrollable content -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:paddingBottom="80dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="12dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/GoalText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Financial Report"
+                            android:textAlignment="center"
+                            android:textColor="@color/bright_orange"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <!-- Buttons Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <Button
+                                android:id="@+id/IncomeBtn"
+                                android:layout_width="0dp"
+                                android:layout_height="36dp"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="4dp"
+                                android:textSize="10sp"
+                                android:backgroundTint="@color/grey"
+                                android:text="Income"
+                                android:textColor="@color/black" />
+
+                            <Button
+                                android:id="@+id/Graph"
+                                android:layout_width="0dp"
+                                android:layout_height="36dp"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="4dp"
+                                android:textSize="10sp"
+                                android:backgroundTint="@color/grey"
+                                android:text="Graph"
+                                android:textColor="@color/blue" />
+
+                            <Button
+                                android:id="@+id/addExpenseBtn"
+                                android:layout_width="0dp"
+                                android:layout_height="36dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="4dp"
+                                android:textSize="10sp"
+                                android:backgroundTint="@color/grey"
+                                android:text="Expense"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <!-- Month navigation -->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+
+                            <ImageButton
+                                android:id="@+id/btnPreviousMonth"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/left_arrow"
+                                android:scaleType="fitCenter"
+                                android:contentDescription="Previous month"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tvCurrentMonth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="February"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                app:layout_constraintStart_toEndOf="@id/btnPreviousMonth"
+                                app:layout_constraintEnd_toStartOf="@id/btnNextMonth"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintHorizontal_bias="0.5" />
+
+                            <ImageButton
+                                android:id="@+id/btnNextMonth"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/right_arrow"
+                                android:scaleType="fitCenter"
+                                android:contentDescription="Next month"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <!-- Available Balance -->
+                        <TextView
+                            android:id="@+id/availableBalanceText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Available Balance R24000"
+                            android:textSize="14sp"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:textColor="@android:color/black"
+                            android:backgroundTint="@color/grey"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:background="@color/white"
+            android:elevation="8dp"
+            android:padding="12dp"
+            android:backgroundTint="@color/blue"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/GoalsNav"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Goal"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/blue"
+                app:icon="@drawable/goal"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/FinancialNav"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Finance"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/blue"
+                app:icon="@drawable/budget"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/DebtNav"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Category"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/blue"
+                app:icon="@drawable/money"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp" />
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

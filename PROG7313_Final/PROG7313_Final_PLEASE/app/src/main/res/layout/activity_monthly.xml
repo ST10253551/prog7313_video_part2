@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:id="@+id/monthly"
+    tools:context=".ui.Monthly_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- CardView -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Title -->
+                <TextView
+                    android:id="@+id/GoalText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Goals"
+                    android:textAlignment="center"
+                    android:textColor="@color/bright_orange"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <Spinner
+                    android:id="@+id/monthSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="12dp"/>
+
+
+                <!-- Buttons in a row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/MthlyBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="10sp"
+                        android:backgroundTint="@color/grey"
+                        android:text="Monthly"
+                        android:textColor="@color/blue" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/goalAmountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:text="Monthly" />
+
+                <TextView
+                    android:id="@+id/BadgeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You are a bronze saver. Keep up the good work!" />
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/badgeImageView"-->
+<!--                    android:layout_width="120dp"-->
+<!--                    android:layout_height="120dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:contentDescription="User Badge"-->
+<!--                    app:srcCompat="@drawable/badges_bronze" />-->
+
+                <TextView
+                    android:id="@+id/MonthlyPBText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Monthly Goal Progress!" />
+
+                <!-- User Input Section for Goal and Limit -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Set Monthly Goal and Spending Limit"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/inputMonthlyGoal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Monthly Goal (e.g. 500)"
+                        android:inputType="number"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/edittext_background" />
+
+                    <EditText
+                        android:id="@+id/inputMonthlyLimit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Limit Towards Next Badge (e.g. 1000)"
+                        android:inputType="number"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/edittext_background" />
+
+                    <Button
+                        android:id="@+id/btnApplyGoals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Apply Goals"
+                        android:textColor="@android:color/white"
+                        android:backgroundTint="@color/bright_orange"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="288dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/curMthlAmtText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <ProgressBar
+                        android:id="@+id/MonthlyPB"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="198dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressTint="@color/bright_orange" />
+
+                    <TextView
+                        android:id="@+id/WklyGoalText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="100"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Progress until the next badge!"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/amtTwrdsGoal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <ProgressBar
+                        android:id="@+id/TilNxtGoalPB"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="196dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressTint="@color/bright_orange" />
+
+                    <TextView
+                        android:id="@+id/NxtGoal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="100"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/AddGoalsBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:padding="8dp"
+                    android:text="Would you like to set new goals? Click here."
+                    android:textSize="14sp"
+                    android:backgroundTint="@color/blue"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="1dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:background="@color/white"
+            android:elevation="8dp"
+            android:padding="12dp"
+            android:backgroundTint="@color/blue"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/GoalsNav"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Goal"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/blue"
+                app:icon="@drawable/goal"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/FinancialNav"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Finance"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/blue"
+                app:icon="@drawable/budget"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/DebtNav"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Category"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/blue"
+                app:icon="@drawable/money"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp" />
+        </LinearLayout>
+</FrameLayout>
